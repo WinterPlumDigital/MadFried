@@ -1,4 +1,24 @@
 User-agent: *
 Allow: /
 
-# This file tells search engines like Google that they are allowed to crawl and index your entire website.
+# Explicitly allow AI and LLM crawlers for ChatGPT, Gemini, Claude, and Perplexity
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
