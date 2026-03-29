@@ -40,19 +40,19 @@ export default function App() {
               initial={{ scale: 1 }} animate={{ scale: 1.05 }} transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
               className="overflow-hidden"
             >
-              <img src={workingImg2} alt="Collage 1" className="w-full h-full object-cover object-[85%_center] md:object-[85%_center]" />
+              <img src={workingImg2} alt="Madeline Friedrich operating a cinema camera on set" className="w-full h-full object-cover object-[85%_center] md:object-[85%_center]" />
             </motion.div>
             <motion.div 
               initial={{ scale: 1.05 }} animate={{ scale: 1 }} transition={{ duration: 15, repeat: Infinity, repeatType: "reverse" }}
               className="overflow-hidden"
             >
-              <img src={workingImg3} alt="Collage 2" className="w-full h-full object-cover object-[40%_center] md:object-[40%_center]" />
+              <img src={workingImg3} alt="Madeline Friedrich adjusting lighting equipment during a film shoot" className="w-full h-full object-cover object-[40%_center] md:object-[40%_center]" />
             </motion.div>
             <motion.div 
               initial={{ scale: 1 }} animate={{ scale: 1.05 }} transition={{ duration: 25, repeat: Infinity, repeatType: "reverse" }}
               className="overflow-hidden"
             >
-              <img src={workingImg4} alt="Collage 3" className="w-full h-full object-cover object-right md:object-[75%_center]" />
+              <img src={workingImg4} alt="Madeline Friedrich framing a shot as a cinematographer" className="w-full h-full object-cover object-right md:object-[75%_center]" />
             </motion.div>
           </div>
         </div>
