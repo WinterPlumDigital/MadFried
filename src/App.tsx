@@ -115,7 +115,7 @@ export default function App() {
             <div className="md:col-span-5 relative h-[500px] sm:h-[600px] w-full mt-10 md:mt-0">
               <div className="absolute top-0 right-0 w-[75%] aspect-[3/4] overflow-hidden bg-charcoal z-10">
                 <img 
-                  src="./FlowerPortrait.jpg" 
+                  src={`${import.meta.env.BASE_URL}FlowerPortrait.jpg`} 
                   alt="Madeline Friedrich Portrait" 
                   className="w-full h-full object-cover transition-all duration-700"
                   referrerPolicy="no-referrer"
@@ -124,7 +124,7 @@ export default function App() {
               </div>
               <div className="absolute bottom-12 left-0 w-[80%] aspect-[4/3] overflow-hidden bg-charcoal z-20 shadow-2xl border-4 border-ink">
                 <img 
-                  src="./FlowerWorking.jpg" 
+                  src={`${import.meta.env.BASE_URL}FlowerWorking.jpg`} 
                   alt="Madeline Friedrich on set" 
                   className="w-full h-full object-cover transition-all duration-700"
                   referrerPolicy="no-referrer"
