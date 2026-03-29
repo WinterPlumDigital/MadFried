@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
 import { Filmography } from "./pages/Filmography";
@@ -15,6 +15,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/filmography" element={<Filmography />} />
           <Route path="/contact" element={<Contact />} />
+          {/* Fallback route to catch unknown paths (like GitHub Pages subdirectories) */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
         {/* Footer */}
