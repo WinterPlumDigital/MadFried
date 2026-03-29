@@ -1,0 +1,289 @@
+import React from "react";
+import { motion } from "motion/react";
+import { Mail, Instagram, Video, ArrowRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { skills } from "../data";
+import { FadeIn } from "../components/FadeIn";
+import portraitImg from "../assets/FlowerPortrait.jpg";
+import workingImg from "../assets/FlowerWorking.jpg";
+import workingImg2 from "../assets/FlowerWorking2.jpg";
+import workingImg3 from "../assets/FlowerWorking3.jpg";
+import workingImg4 from "../assets/FlowerWorking4.jpg";
+
+export const Home = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <>
+      {/* 1. HERO SECTION */}
+      <section className="relative h-screen w-full overflow-hidden flex flex-col justify-center items-center">
+        {/* Background Collage */}
+        <div className="absolute inset-0 w-full h-full z-0 bg-black overflow-hidden">
+          <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 h-full w-full gap-1 opacity-70">
+            <motion.div 
+              initial={{ scale: 1 }} animate={{ scale: 1.05 }} transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+              className="overflow-hidden"
+            >
+              <img src={workingImg2} alt="Madeline Friedrich operating a cinema camera on set" className="w-full h-full object-cover object-[85%_center] md:object-[85%_center]" />
+            </motion.div>
+            <motion.div 
+              initial={{ scale: 1.05 }} animate={{ scale: 1 }} transition={{ duration: 15, repeat: Infinity, repeatType: "reverse" }}
+              className="overflow-hidden"
+            >
+              <img src={workingImg3} alt="Madeline Friedrich adjusting lighting equipment during a film shoot" className="w-full h-full object-cover object-[40%_center] md:object-[40%_center]" />
+            </motion.div>
+            <motion.div 
+              initial={{ scale: 1 }} animate={{ scale: 1.05 }} transition={{ duration: 25, repeat: Infinity, repeatType: "reverse" }}
+              className="overflow-hidden"
+            >
+              <img src={workingImg4} alt="Madeline Friedrich framing a shot as a cinematographer" className="w-full h-full object-cover object-right md:object-[75%_center]" />
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto mt-20">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight mb-4"
+          >
+            Madeline Friedrich
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="text-gold text-sm md:text-base uppercase tracking-[0.2em] font-medium mb-6"
+          >
+            Cinematographer | Video Editor | Scriptwriter
+          </motion.p>
+          
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="text-neutral-300 text-lg md:text-xl font-light italic max-w-2xl mx-auto mb-12"
+          >
+            "Capturing stories through motion, music, and meaning."
+          </motion.p>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+          >
+            <Link 
+              to="/filmography"
+              className="px-8 py-4 bg-gold text-ink font-medium tracking-wide hover:bg-white transition-colors duration-300 flex items-center gap-2"
+            >
+              View Filmography <ArrowRight size={18} />
+            </Link>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="px-8 py-4 border border-neutral-600 text-white font-medium tracking-wide hover:border-gold hover:text-gold transition-colors duration-300"
+            >
+              Contact
+            </button>
+          </motion.div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 cursor-pointer text-neutral-500 hover:text-gold transition-colors"
+          onClick={() => scrollToSection('about')}
+        >
+          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown size={20} />
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* 2. ABOUT SECTION */}
+      <section id="about" className="py-32 px-6 md:px-12 max-w-5xl mx-auto">
+        <FadeIn>
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-5 relative h-[500px] sm:h-[600px] w-full mt-10 md:mt-0">
+              <div className="absolute top-0 right-0 w-[75%] aspect-[3/4] overflow-hidden bg-charcoal z-10">
+                <img 
+                  src={portraitImg} 
+                  alt="Madeline Friedrich Portrait" 
+                  className="w-full h-full object-cover transition-all duration-700"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 border border-neutral-800 m-3 pointer-events-none"></div>
+              </div>
+              <div className="absolute bottom-12 left-0 w-[80%] aspect-[4/3] overflow-hidden bg-charcoal z-20 shadow-2xl border-4 border-ink">
+                <img 
+                  src={workingImg} 
+                  alt="Madeline Friedrich on set" 
+                  className="w-full h-full object-cover transition-all duration-700"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 border border-neutral-800 m-2 pointer-events-none"></div>
+              </div>
+            </div>
+            <div className="md:col-span-7">
+              <h2 className="font-serif text-4xl md:text-5xl mb-8">About Madeline</h2>
+              <div className="space-y-6 text-neutral-400 text-lg font-light leading-relaxed">
+                <p>
+                  Madeline Friedrich is a multi-disciplinary filmmaker with experience in live music videography, narrative storytelling, and creative production.
+                </p>
+                <p>
+                  She has worked on music videos, school productions, short films, and live performances in both structured and fast-paced environments like bars and clubs. 
+                </p>
+                <p>
+                  Her work focuses on visual storytelling, rhythm, and emotional connection, blending technical precision with an artistic eye to bring every frame to life.
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      {/* 3. FEATURED SHOWREEL */}
+      <section className="py-24 bg-charcoal">
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeIn>
+            <div className="flex items-center justify-between mb-12 border-b border-neutral-800 pb-6">
+              <h2 className="font-serif text-3xl md:text-4xl">Selected Works</h2>
+              <span className="text-gold text-sm tracking-widest uppercase">Featured</span>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-xl font-medium text-neutral-200">Kiss Her Short Film</h3>
+                  <p className="text-sm text-gold mt-1 font-light tracking-wide">Assistant Director + Production Assistant</p>
+                </div>
+                <div className="relative aspect-video bg-black overflow-hidden rounded-sm shadow-2xl">
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src="https://www.youtube.com/embed/WufCNPYDSsU"
+                    title="Kiss Her Short Film"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-xl font-medium text-neutral-200">MIRA Short Film</h3>
+                  <p className="text-sm text-gold mt-1 font-light tracking-wide">Director of Photography</p>
+                </div>
+                <div className="relative aspect-video bg-black overflow-hidden rounded-sm shadow-2xl">
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src="https://www.youtube.com/embed/90CZyy651Ts"
+                    title="MIRA Short Film"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-16 text-center">
+              <Link to="/filmography" className="inline-flex items-center gap-2 text-gold hover:text-white transition-colors font-medium tracking-wide uppercase text-sm border-b border-gold hover:border-white pb-1">
+                View Full Filmography <ArrowRight size={16} />
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* 5. EXPERIENCE & 6. SKILLS */}
+      <section className="py-32 bg-ink border-y border-neutral-800">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20">
+          
+          {/* Experience */}
+          <FadeIn>
+            <h2 className="font-serif text-3xl mb-10 text-gold">Experience</h2>
+            <div className="space-y-10">
+              <div className="relative pl-8 border-l border-neutral-700">
+                <div className="absolute w-3 h-3 bg-gold rounded-full -left-[6.5px] top-2"></div>
+                <h3 className="text-xl font-medium mb-2">Live Music & Events</h3>
+                <p className="text-neutral-400 font-light leading-relaxed">
+                  Camerawoman for live cover bands performing in fast-paced, dynamic environments like bars and clubs. Expert in capturing rhythm and atmosphere under challenging lighting conditions.
+                </p>
+              </div>
+              <div className="relative pl-8 border-l border-neutral-700">
+                <div className="absolute w-3 h-3 bg-neutral-600 rounded-full -left-[6.5px] top-2"></div>
+                <h3 className="text-xl font-medium mb-2">Narrative & Production</h3>
+                <p className="text-neutral-400 font-light leading-relaxed">
+                  Extensive experience filming skits, short films, and large-scale school-based musical and theatrical productions. Strong focus on visual storytelling and adaptability on set.
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Skills */}
+          <FadeIn delay={0.2}>
+            <h2 className="font-serif text-3xl mb-10 text-gold">Expertise</h2>
+            <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+              {skills.map((skill, index) => (
+                <div key={index} className="flex items-center gap-3 text-neutral-300">
+                  <Video size={16} className="text-neutral-600" />
+                  <span className="font-light tracking-wide">{skill}</span>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-12 p-6 border border-neutral-800 bg-charcoal/50">
+              <h4 className="text-sm text-neutral-500 uppercase tracking-widest mb-4">Software</h4>
+              <p className="text-neutral-300 font-light">Premiere Pro, After Effects, Final Cut Pro</p>
+            </div>
+          </FadeIn>
+
+        </div>
+      </section>
+
+      {/* 7. CONTACT SECTION */}
+      <section id="contact" className="py-32 px-6 max-w-4xl mx-auto text-center">
+        <FadeIn>
+          <h2 className="font-serif text-5xl md:text-6xl mb-6">Let's Create.</h2>
+          <p className="text-neutral-400 text-lg font-light mb-12 max-w-xl mx-auto">
+            Available for freelance cinematography, editing, and scriptwriting opportunities.
+          </p>
+          
+          <a 
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=madeline.friedrich.buisness@gmail.com" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 text-2xl md:text-3xl font-light hover:text-gold transition-colors duration-300 mb-16"
+          >
+            <Mail size={28} />
+            madeline.friedrich.buisness@gmail.com
+          </a>
+
+          <div className="flex justify-center gap-8">
+            <a href="https://www.instagram.com/madfried.film/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-gold hover:border-gold transition-all duration-300">
+              <Instagram size={20} />
+            </a>
+          </div>
+        </FadeIn>
+      </section>
+    </>
+  );
+};
