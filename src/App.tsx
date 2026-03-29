@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Play, Mail, Instagram, Youtube, Video, ArrowRight, ChevronDown } from "lucide-react";
+import { Mail, Instagram, Video, ArrowRight, ChevronDown } from "lucide-react";
 import { portfolioData, skills } from "./data";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string, key?: React.Key }) => (
