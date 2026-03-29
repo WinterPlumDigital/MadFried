@@ -4,6 +4,9 @@ import { Mail, Instagram, Video, ArrowRight, ChevronDown } from "lucide-react";
 import { portfolioData, skills } from "./data";
 import portraitImg from "./assets/FlowerPortrait.jpg";
 import workingImg from "./assets/FlowerWorking.jpg";
+import workingImg2 from "./assets/FlowerWorking2.jpg";
+import workingImg3 from "./assets/FlowerWorking3.jpg";
+import workingImg4 from "./assets/FlowerWorking4.jpg";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string, key?: React.Key }) => (
   <motion.div
@@ -29,17 +32,29 @@ export default function App() {
     <div className="min-h-screen bg-ink text-neutral-100 font-sans selection:bg-gold selection:text-ink">
       {/* 1. HERO SECTION */}
       <section className="relative h-screen w-full overflow-hidden flex flex-col justify-center items-center">
-        {/* Background Video */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <div className="absolute inset-0 bg-black/60 z-10"></div>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-70"
-            src="https://videos.pexels.com/video-files/3121459/3121459-uhd_2560_1440_24fps.mp4"
-          />
+        {/* Background Collage */}
+        <div className="absolute inset-0 w-full h-full z-0 bg-black overflow-hidden">
+          <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 h-full w-full gap-1 opacity-70">
+            <motion.div 
+              initial={{ scale: 1 }} animate={{ scale: 1.05 }} transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+              className="overflow-hidden"
+            >
+              <img src={workingImg2} alt="Collage 1" className="w-full h-full object-cover object-[85%_center] md:object-[85%_center]" />
+            </motion.div>
+            <motion.div 
+              initial={{ scale: 1.05 }} animate={{ scale: 1 }} transition={{ duration: 15, repeat: Infinity, repeatType: "reverse" }}
+              className="overflow-hidden"
+            >
+              <img src={workingImg3} alt="Collage 2" className="w-full h-full object-cover object-[40%_center] md:object-[40%_center]" />
+            </motion.div>
+            <motion.div 
+              initial={{ scale: 1 }} animate={{ scale: 1.05 }} transition={{ duration: 25, repeat: Infinity, repeatType: "reverse" }}
+              className="overflow-hidden"
+            >
+              <img src={workingImg4} alt="Collage 3" className="w-full h-full object-cover object-right md:object-[75%_center]" />
+            </motion.div>
+          </div>
         </div>
 
         {/* Hero Content */}
